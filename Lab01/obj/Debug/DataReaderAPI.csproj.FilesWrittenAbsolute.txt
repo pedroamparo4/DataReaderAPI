@@ -1,0 +1,5 @@
+/home/pedro/Desktop/GIT/DataReaderAPI/Lab01/obj/Debug/.NETFramework,Version=v4.5.2.AssemblyAttribute.cs
+/home/pedro/Desktop/GIT/DataReaderAPI/Lab01/obj/Debug/Lab01.exe
+/home/pedro/Desktop/GIT/DataReaderAPI/Lab01/bin/Debug/LibUsbDotNet.dll
+/home/pedro/Desktop/GIT/DataReaderAPI/Lab01/bin/Debug/Lab01.exe.config
+/home/pedro/Desktop/GIT/DataReaderAPI/Lab01/bin/Debug/Lab01.exe
