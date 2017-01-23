@@ -5,3 +5,6 @@ c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\bin\Debug\LibUs
 c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\obj\Debug\Lab01.exe
 c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\obj\Debug\Lab01.pdb
 c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\obj\Debug\DataReaderAPI.csprojResolveAssemblyReference.cache
+C:\Users\Pedro\Desktop\APIREADER GIT\DataReaderAPI\Lab01\bin\Debug\Lab01.exe.config
+C:\Users\Pedro\Desktop\APIREADER GIT\DataReaderAPI\Lab01\obj\Debug\Lab01.exe
+C:\Users\Pedro\Desktop\APIREADER GIT\DataReaderAPI\Lab01\obj\Debug\Lab01.pdb

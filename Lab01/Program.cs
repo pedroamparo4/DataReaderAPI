@@ -9,43 +9,30 @@ using System.Management;
 
 namespace DataReaderAPI
 {
-    class USBDeviceInfo
-    {
-        public USBDeviceInfo(string deviceID, string pnpDeviceID, string description)
-        {
-            this.DeviceID = deviceID;
-            this.PnpDeviceID = pnpDeviceID;
-            this.Description = description;
-        }
-        public string DeviceID { get; private set; }
-        public string PnpDeviceID { get; private set; }
-        public string Description { get; private set; }
-    }
 
     class Program
     {
-        public static UsbDevice MyUsbDevice;
-        public static UsbDeviceFinder MyUsbFinder = new UsbDeviceFinder(0x04E8, 0x6860);
+        public static UsbDevice _usbDevice;
+        public static UsbDeviceFinder _usbFinder = new UsbDeviceFinder(DataReaderConfig.VID, DataReaderConfig.PID);
 
         static void Main(string[] args)
         {
             ErrorCode ec = ErrorCode.None;
-    
-
+   
             try
             {
                 // Find and open the usb device.
-                MyUsbDevice = UsbDevice.OpenUsbDevice(MyUsbFinder);
+                _usbDevice = UsbDevice.OpenUsbDevice(_usbFinder);
                 
                 // If the device is open and ready
-                if (MyUsbDevice == null) throw new Exception("Device Not Found.");
+                if (_usbDevice == null) throw new Exception("Device Not Found.");
 
                 // If this is a "whole" usb device (libusb-win32, linux libusb-1.0)
                 // it exposes an IUsbDevice interface. If not (WinUSB) the 
                 // 'wholeUsbDevice' variable will be null indicating this is 
                 // an interface of a device; it does not require or support 
                 // configuration and interface selection.
-                IUsbDevice wholeUsbDevice = MyUsbDevice as IUsbDevice;
+                IUsbDevice wholeUsbDevice = _usbDevice as IUsbDevice;
                 if (!ReferenceEquals(wholeUsbDevice, null))
                 {
                     // This is a "whole" USB device. Before it can be used, 
@@ -59,7 +46,7 @@ namespace DataReaderAPI
                 }
 
                 // open read endpoint 1.
-                UsbEndpointReader reader = MyUsbDevice.OpenEndpointReader(ReadEndpointID.Ep01);
+                UsbEndpointReader reader = _usbDevice.OpenEndpointReader(ReadEndpointID.Ep01);
 
 
                 byte[] readBuffer = new byte[1024];
@@ -87,25 +74,25 @@ namespace DataReaderAPI
             }
             finally
             {
-                if (MyUsbDevice != null)
+                if (_usbDevice != null)
                 {
-                    if (MyUsbDevice.IsOpen)
+                    if (_usbDevice.IsOpen)
                     {
                         // If this is a "whole" usb device (libusb-win32, linux libusb-1.0)
                         // it exposes an IUsbDevice interface. If not (WinUSB) the 
                         // 'wholeUsbDevice' variable will be null indicating this is 
                         // an interface of a device; it does not require or support 
                         // configuration and interface selection.
-                        IUsbDevice wholeUsbDevice = MyUsbDevice as IUsbDevice;
+                        IUsbDevice wholeUsbDevice = _usbDevice as IUsbDevice;
                         if (!ReferenceEquals(wholeUsbDevice, null))
                         {
                             // Release interface #0.
                             wholeUsbDevice.ReleaseInterface(0);
                         }
 
-                        MyUsbDevice.Close();
+                        _usbDevice.Close();
                     }
-                    MyUsbDevice = null;
+                    _usbDevice = null;
 
                     // Free usb resources
                     UsbDevice.Exit();
