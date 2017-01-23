@@ -1,7 +1,0 @@
-c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\bin\Debug\Lab01.exe.config
-c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\bin\Debug\Lab01.exe
-c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\bin\Debug\Lab01.pdb
-c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\bin\Debug\LibUsbDotNet.dll
-c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\obj\Debug\Lab01.csprojResolveAssemblyReference.cache
-c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\obj\Debug\Lab01.exe
-c:\users\pedro\documents\visual studio 2015\Projects\Lab01\Lab01\obj\Debug\Lab01.pdb
